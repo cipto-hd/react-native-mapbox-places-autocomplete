@@ -1,0 +1,36 @@
+{
+  "name": "react-native-mapbox-places-autocomplete",
+  "version": "0.0.1",
+  "description": "Customizable Mapbox Places autocomplete component for iOS and Android React-Native apps",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "type": "module",
+  "scripts": {
+    "release": "npx release-it"
+  },
+  "author": "Cipto Hadi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cipto-hd/react-native-mapbox-places-autocomplete.git"
+  },
+  "keywords": [
+    "autocomplete",
+    "google-alternative",
+    "mapbox",
+    "places",
+    "react-component",
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "bugs": {
+    "url": "https://github.com/cipto-hd/react-native-mapbox-places-autocomplete/issues"
+  },
+  "homepage": "https://github.com/cipto-hd/react-native-mapbox-places-autocomplete#readme",
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {
+    "react-native": ">= 0.59"
+  }
+}
