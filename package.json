@@ -1,6 +1,6 @@
 {
   "name": "react-native-mapbox-places-autocomplete",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Customizable Mapbox Places autocomplete component for iOS and Android React-Native apps",
   "main": "index.js",
   "types": "index.d.ts",
