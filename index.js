@@ -13,20 +13,23 @@ import { mapboxLogoUri, closeBtnUri } from "./images";
 /**
  * Main Component
  */
-const MapboxPlacesAutocomplete = (
-  {
-    inputStyle,
-    containerStyle,
-    inputClassName = "",
-    containerClassName = "",
-    placeholder = "Address",
-    accessToken = "",
-    onPlaceSelect,
-    countryId = "de",
-  },
-  ref
-) => {
+const MapboxPlacesAutocomplete = ({
+  id = "",
+  inputStyle,
+  containerStyle,
+  inputClassName = "",
+  containerClassName = "",
+  placeholder = "Address",
+  accessToken = "",
+  onPlaceSelect,
+  countryId = "de",
+  onClearInput,
+}) => {
   const placesAutocomplete = usePlacesAutocomplete("", accessToken, countryId);
+  if (id === "" || typeof id !== "string")
+    throw new Error(
+      "[MapboxPlacesAutocomplete] Property `id` is required and must be a string."
+    );
 
   return (
     <View
@@ -43,6 +46,7 @@ const MapboxPlacesAutocomplete = (
           style={styles.clearBtn}
           onPress={() => {
             placesAutocomplete.setValue("");
+            onClearInput({ id }); // tell the consumer about which input is cleared
           }}
         >
           <Image source={closeBtnUri} style={styles.clearBtnImage} />
