@@ -43,22 +43,46 @@ Get your [Mapbox Public Token](https://account.mapbox.com/auth/signup/)
 ```js
 import React from "react";
 import MapboxPlacesAutocomplete from "react-native-mapbox-places-autocomplete";
+import Config from "react-native-config";
 
 const MapboxPlacesInput = () => {
   return (
     <MapboxPlacesAutocomplete
+      id="origin"
       placeholder="Origin"
-      accessToken={APIKEY}
+      accessToken={Config.MAPBOX_PUBLIC_TOKEN} // MAPBOX_PUBLIC_TOKEN is stored in .env root project folder
       onPlaceSelect={(data) => {
-        console.log(data);
+        dispatch(setOrigin(data));
+        dispatch(setDestination(null));
+      }}
+      onClearInput={({ id }) => {
+        id === "origin" && dispatch(setOrigin(null));
       }}
       countryId="id"
+      containerStyle={{
+        marginBottom: 12,
+      }}
     />
   );
 };
 
 export default MapboxPlacesInput;
 ```
+
+## Available Properties
+
+| Property name      | Description                                        |
+| ------------------ | -------------------------------------------------- |
+| id                 | : string                                           |
+| inputStyle         | : `StyleProp<TextStyle>`                           |
+| containerStyle     | : `StyleProp<ViewStyle>`                           |
+| inputClassName     | : string                                           |
+| containerClassName | : string                                           |
+| placeholder        | : string                                           |
+| accessToken        | : string                                           |
+| onPlaceSelect      | : `(data) => { /* do something with the data */ }` |
+| countryId          | : string                                           |
+| onClearInput       | : `(data) => { /* do something with the data */ }` |
 
 ## Changelog
 
